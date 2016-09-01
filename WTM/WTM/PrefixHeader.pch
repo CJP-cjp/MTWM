@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  WTM
+//
+//  Created by mac on 16/9/1.
+//  Copyright © 2016年 mac. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "CZAdditions.h"
+#import "Masonry.h"
+//屏蔽C文件的宏
+#ifdef __OBJC__
+/*
+ *调试的宏
+ */
+#ifdef DEBUG // 测试!
+#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define NSLog(...) // 打印信息也是非常耗性能!
+#endif
+
+#endif
+
+
+#endif /* PrefixHeader_pch */
